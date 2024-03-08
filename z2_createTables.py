@@ -5,4 +5,5 @@ conn = sqlite3.connect("QuizBowlDatabase.db")
 cr = conn.cursor()
 
 # Creating new tables
-cr.execute()
+def add_table(name, questions, answers):
+    cr.execute()
