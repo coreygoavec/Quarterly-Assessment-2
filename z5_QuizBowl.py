@@ -17,15 +17,15 @@ def CategoryQuestions():
     #print(user_input)
 
     # Define the database table based on the user input
-    if user_input == 'BusinessStrategy':
+    if user_input == 'businessstrategy':
         table_name = 'BusinessStrategy'
-    elif user_input == 'BusinessApplicationsDevelopment':
+    elif user_input == 'businessapplicationsdevelopment':
         table_name = 'BusinessApplicationsDevelopment'
-    elif user_input == 'OrganizationalLeadership':
+    elif user_input == 'organizationalleadership':
         table_name = 'OrganizationalLeadership'
-    elif user_input == 'AnalyticsCapstone':
+    elif user_input == 'analyticscapstone':
         table_name = 'AnalyticsCapstone'
-    elif user_input == 'Entrepreneurship':
+    elif user_input == 'entrepreneurship':
         table_name = 'BusinessLaw'
     else:
         print("Invalid category selection. Please try again.")

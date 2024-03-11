@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to the database
-conn = sqlite3.connect('quiz_bowl.db')
+conn = sqlite3.connect('QuizBowlDatabase.db')
 cursor = conn.cursor()
 
 # create a list of dictionaries with the questions and answers for Business Applications Development
@@ -53,27 +53,29 @@ questions = [
     }
 ]
 # Insert questions into the Business Applications Development table
-#for question in questions:
-#    pass
-#    cursor.execute('''INSERT INTO BusinessApplicationsDevelopment (id, question, option1, option2, option3, option4, correct_answer)
-#                      VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
-#                                                         question['option2'], question['option3'], question['option4'],
-#                                                         question['correct_answer']))
-#    conn.commit()
-#
+for question in questions:
+   pass
+   cursor.execute('''INSERT INTO BusinessApplicationsDevelopment (id, question, option1, option2, option3, option4, correct_answer)
+                     VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
+                                                        question['option2'], question['option3'], question['option4'],
+                                                        question['correct_answer']))
+   conn.commit()
 
 # use select query to check if your data properly populated the table
-#cursor.execute('''SELECT * FROM BusinessStrategy''')
+cursor.execute('''SELECT * FROM BusinessApplicationsDevelopment''')
+
+# use select query to check if your data properly populated the table
+cursor.execute('''SELECT * FROM BusinessApplicationsDevelopment''')
 
 # Fetch all rows from the result set
-#rows = cursor.fetchall()
+rows = cursor.fetchall()
 
 # Print the fetched rows
-#for row in rows:
-#    print(row)
+for row in rows:
+   print(row)
 
 # List of questions for Entrepreneurship course
-business_app_questions = [
+entrepreneurship_questions = [
     {
         "id": 1,
         "question": "What is the primary goal of entrepreneurship?",
@@ -121,14 +123,15 @@ business_app_questions = [
     }  
 ]
 # for loop to insert questions into the Entrepreneurship table
-# for question in business_app_questions:
-#     cursor.execute('''INSERT INTO BusinessApplications (id, question, option1, option2, option3, option4, correct_answer)
-#                       VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
-#                                                          question['option2'], question['option3'], question['option4'],
-#                                                          question['correct_answer']))
-#     conn.commit()
+for question in entrepreneurship_questions:
+    cursor.execute('''INSERT INTO Entrepreneurship (id, question, option1, option2, option3, option4, correct_answer)
+                      VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
+                                                         question['option2'], question['option3'], question['option4'],
+                                                         question['correct_answer']))
+    conn.commit()
+
 # List of questions for Organizational Leadership course
-programming_logic_questions = [
+organizational_leadership_questions = [
     {
         "id": 1,
         "question": "What does the term 'delegation' refer to in organizational leadership?",
@@ -176,12 +179,12 @@ programming_logic_questions = [
     }
 ]
 # Insert questions into the OrganizationalLeadership table
-# for question in programming_logic_questions:
-#     cursor.execute('''INSERT INTO ProgrammingLogic (id, question, option1, option2, option3, option4, correct_answer)
-#                       VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
-#                                                          question['option2'], question['option3'], question['option4'],
-#                                                          question['correct_answer']))
-#     conn.commit()
+for question in organizational_leadership_questions:
+    cursor.execute('''INSERT INTO OrganizationalLeadership (id, question, option1, option2, option3, option4, correct_answer)
+                      VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
+                                                         question['option2'], question['option3'], question['option4'],
+                                                         question['correct_answer']))
+    conn.commit()
 
 # List of questions for Business Intelligence and Analytics Capstone course
 bi_analytics_questions = [
@@ -233,15 +236,15 @@ bi_analytics_questions = [
 ]
 
 # use a for loop to insert questions into the AnalyticsCapstone table
-# for question in bi_analytics_questions:
-#     cursor.execute('''INSERT INTO AnalyticsCapstone (id, question, option1, option2, option3, option4, correct_answer)
-#                       VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
-#                                                          question['option2'], question['option3'], question['option4'],
-#                                                          question['correct_answer']))
-#     conn.commit()
+for question in bi_analytics_questions:
+    cursor.execute('''INSERT INTO AnalyticsCapstone (id, question, option1, option2, option3, option4, correct_answer)
+                      VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
+                                                         question['option2'], question['option3'], question['option4'],
+                                                         question['correct_answer']))
+    conn.commit()
 
 # List of questions for Business Strategy course
-business_law_questions = [
+business_strategy_questions = [
     {
         "id": 1,
         "question": "What is the central focus of a SWOT analysis in business strategy?",
@@ -290,26 +293,27 @@ business_law_questions = [
 ]
 
 # for loop to insert questions into the BusinessStrategy table
-# for question in business_law_questions:
-#     cursor.execute('''INSERT INTO BusinessLaw (id, question, option1, option2, option3, option4, correct_answer)
-#                       VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
-#                                                          question['option2'], question['option3'], question['option4'],
-#                                                          question['correct_answer']))
-#     conn.commit()
+for question in business_strategy_questions:
+    cursor.execute('''INSERT INTO BusinessLaw (id, question, option1, option2, option3, option4, correct_answer)
+                      VALUES (?, ?, ?, ?, ?, ?, ?)''', (question['id'], question['question'], question['option1'],
+                                                         question['option2'], question['option3'], question['option4'],
+                                                         question['correct_answer']))
+    conn.commit()
+
 #Fetch and display data from each table
-# tables = ['BusinessStrategy', 'BusinessApplications', 'ProgrammingLogic', 'AnalyticsCapstone', 'BusinessLaw']
-# for table in tables:
-#     cursor.execute(f"SELECT * FROM {table}")
-#     rows = cursor.fetchall()
-#     print(f"Contents of {table} table:")
-#     for row in rows:
-#         print(row)
-#     print()
+tables = ['BusinessStrategy', 'BusinessApplicationsDevelopment', 'Entrepreneurship', 'AnalyticsCapstone', 'OrganizationalLeadership']
+for table in tables:
+    cursor.execute(f"SELECT * FROM {table}")
+    rows = cursor.fetchall()
+    print(f"Contents of {table} table:")
+    for row in rows:
+        print(row)
+    print()
 
 def add_new_question(table, id, question, option1, option2, option3, option4, correct_answer):
     try:
         # Connect to the database
-        conn = sqlite3.connect('quiz_bowl.db')
+        conn = sqlite3.connect('QuizBowlDatabase.db')
         cursor = conn.cursor()
 
         # Insert the new question into the specified category table(add 1 to previous id )
