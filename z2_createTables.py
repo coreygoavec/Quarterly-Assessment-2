@@ -1,38 +1,62 @@
 import sqlite3
 
-def create_table():
-    # Connect to the SQLite database (replace 'your_database.db' with your actual database file)
-    conn = sqlite3.connect('your_database.db')
-    cursor = conn.cursor()
+# Connect to SQLite database (or create it if it doesn't exist)
+conn = sqlite3.connect('QuizBowlDatabase.db')
 
-    # Get table name from user
-    table_name = input("Enter the name for the table: ")
+# Create a cursor object to execute SQL commands
+cursor = conn.cursor()
 
-    # Get the number of columns for the table
-    num_columns = int(input("Enter the number of columns for the table: "))
+# Define SQL command to create a table to hold questions for Entrepreneurship
+cursor.execute('''CREATE TABLE IF NOT EXISTS Entrepreneurship (
+                    id INTEGER PRIMARY KEY,
+                    question TEXT,
+                    option1 TEXT,
+                    option2 TEXT,
+                    option3 TEXT,
+                    option4 TEXT,
+                    correct_answer TEXT
+                )''')
 
-    # Initialize an empty list to store column definitions
-    columns = []
+# Define SQL command to create a table to hold questions for Business Applications Development
+cursor.execute('''CREATE TABLE IF NOT EXISTS BusinessApplicationsDevelopment (
+                    id INTEGER PRIMARY KEY,
+                    question TEXT,
+                    option1 TEXT,
+                    option2 TEXT,
+                    option3 TEXT,
+                    option4 TEXT,
+                    correct_answer TEXT
+                )''')
 
-    # Prompt the user to enter column names and types
-    for i in range(num_columns):
-        column_name = input(f"Enter the name for column {i + 1}: ")
-        column_type = input(f"Enter the type for column {i + 1} (e.g., TEXT, INTEGER): ")
-        columns.append(f"{column_name} {column_type}")
+# Define SQL command to create a table to hold questions for Organizational Leadership
+cursor.execute('''CREATE TABLE IF NOT EXISTS OrganizationalLeadership (
+                    id INTEGER PRIMARY KEY,
+                    question TEXT,
+                    option1 TEXT,
+                    option2 TEXT,
+                    option3 TEXT,
+                    option4 TEXT,
+                    correct_answer TEXT
+                )''')
 
-    # Create the SQL query to create the table
-    create_table_query = f'CREATE TABLE "{table_name}" ({", ".join(columns)});'
+# Define SQL command to create a table to hold questions for Business Intelligence and Analytics Capstone
+cursor.execute('''CREATE TABLE IF NOT EXISTS AnalyticsCapstone (
+                    id INTEGER PRIMARY KEY,
+                    question TEXT,
+                    option1 TEXT,
+                    option2 TEXT,
+                    option3 TEXT,
+                    option4 TEXT,
+                    correct_answer TEXT
+                )''')
 
-    # Execute the query to create the table
-    try:
-        cursor.execute(create_table_query)
-        print(f"Table '{table_name}' created successfully.")
-    except sqlite3.Error as e:
-        print(f"Error creating table: {e}")
-
-    # Commit the changes and close the connection
-    conn.commit()
-    conn.close()
-
-# Call the function to create the table
-create_table()
+# Define SQL command to create a table to hold questions for Business Strategy
+cursor.execute('''CREATE TABLE IF NOT EXISTS BusinessStrategy (
+                    id INTEGER PRIMARY KEY,
+                    question TEXT,
+                    option1 TEXT,
+                    option2 TEXT,
+                    option3 TEXT,
+                    option4 TEXT,
+                    correct_answer TEXT
+                )''')
