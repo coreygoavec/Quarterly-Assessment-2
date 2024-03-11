@@ -2,7 +2,7 @@ import sqlite3
 
 def create_table():
     # Connect to the SQLite database (replace 'your_database.db' with your actual database file)
-    conn = sqlite3.connect('QuizBowlDatabase.db')
+    conn = sqlite3.connect('your_database.db')
     cursor = conn.cursor()
 
     # Get table name from user
@@ -21,7 +21,7 @@ def create_table():
         columns.append(f"{column_name} {column_type}")
 
     # Create the SQL query to create the table
-    create_table_query = f"CREATE TABLE {table_name} ({', '.join(columns)});"
+    create_table_query = f'CREATE TABLE "{table_name}" ({", ".join(columns)});'
 
     # Execute the query to create the table
     try:
